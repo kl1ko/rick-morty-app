@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 200px;
+  display: flex;
+  gap: 16px;
+
+  flex-wrap: wrap;
+  width: 50%;
+  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  border: 2px solid red;
+  height: 200px;
+  width: 100%;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.card-image-wrapper {
+  height: 100%;
+}
+
+.card-image-wrapper > img {
+  object-fit: cover;
+  height: inherit;
+}
+
+.card-description {
+  margin-right: 8px;
+}
+
+h2 {
+  font-size: 25px;
+
+  color: red;
+}
