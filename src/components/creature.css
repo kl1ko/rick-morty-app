@@ -4,30 +4,49 @@
   margin: 0;
 }
 
+body {
+  background: #0a192f;
+  color: white; /* Для контраста текста */
+}
+
 .wrapper {
+  padding: 8px 100px 8px 100px;
+
   min-height: 200px;
   display: flex;
   gap: 16px;
 
   flex-wrap: wrap;
-  width: 50%;
-  padding: 8px;
+
   flex-direction: column;
   align-items: center;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
 }
 
 .card {
   display: flex;
-  border: 2px solid red;
+
   height: 200px;
-  width: 100%;
+  width: 500px;
+
   gap: 16px;
-  max-width: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background: rgba(23, 42, 69, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-.card-image-wrapper {
-  height: 100%;
+.card:hover {
+  background: rgba(47, 85, 137, 0.8);
 }
 
 .card-image-wrapper > img {
@@ -39,8 +58,169 @@
   margin-right: 8px;
 }
 
-h2 {
+h3 {
   font-size: 25px;
 
-  color: red;
+  font-family: "Roboto", sans-serif;
+  padding-top: 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+#next20 {
+  padding: 15px 30px;
+  font-size: 16px;
+  color: white;
+  /* background: linear-gradient(45deg, #6a11cb, #2575fc); */
+  background: rgba(23, 42, 69, 0.8);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+#next20:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  background: rgba(47, 85, 137, 0.8);
+}
+
+#next20:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* всё что связано со статусом */
+
+.status-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.status-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.status-alive {
+  background-color: green;
+}
+
+.status-dead {
+  background-color: red;
+}
+
+.status-unknown {
+  background-color: gray;
+}
+
+/* Container for the filter dropdown */
+.filter-container {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Label styling */
+.filter-container label {
+  font-size: 16px;
+  color: #ffffff; /* White text */
+  margin-right: 10px;
+}
+
+/* Dropdown styling */
+.filter-container select {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #ffffff; /* White text */
+  background-color: #1a1a2e; /* Dark blue background */
+  border: 1px solid #333; /* Gray border */
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Dropdown arrow styling */
+.filter-container select::-ms-expand {
+  display: none; /* Hide the default arrow in IE */
+}
+
+.filter-container select::after {
+  content: "\\25BC"; /* Unicode character for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #ffffff; /* White arrow */
+}
+
+/* Dropdown options styling */
+.filter-container select option {
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #ffffff; /* White text */
+}
+
+/* Hover effect for dropdown */
+.filter-container select:hover {
+  border-color: #555; /* Lighter gray border on hover */
+}
+
+/* Focus effect for dropdown */
+.filter-container select:focus {
+  border-color: #777; /* Even lighter gray border on focus */
+}
+
+label {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff; /* White text */
+  margin-right: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #1a1a2e; /* Dark blue background */
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 350px;
+    height: 150px;
+  }
+
+  .card h3 {
+    font-size: 18px; /* Уменьшаем размер шрифта заголовка */
+  }
+
+  .card p {
+    font-size: 14px; /* Уменьшаем размер шрифта текста */
+  }
 }
